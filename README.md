@@ -1,9 +1,9 @@
-# FitzHugh-Nagumo Stabilization with Sarsa(lambda)
+# FitzHugh-Nagumo Stabilization with Sarsa(λ)
 
 ## Abstract
 
 This project studies reinforcement-learning control of a simplified excitable
-heart-cell model. A tile-coded True Online Sarsa(lambda) agent learns to apply
+heart-cell model. A tile-coded True Online Sarsa(λ) agent learns to apply
 bounded stimulation currents to the FitzHugh-Nagumo system, with the objective
 of stabilizing the voltage and recovery variables near the model's quiescent
 equilibrium while avoiding excessive control effort.
@@ -51,13 +51,13 @@ features. For each action, the feature encoder activates one tile in each
 offset tiling. This produces a sparse binary representation that lets a linear
 model generalize across nearby `(v, w)` states while retaining local resolution.
 
-Training uses True Online Sarsa(lambda):
+Training uses True Online Sarsa(λ):
 
 1. select an action with an epsilon-greedy policy,
 2. observe the next state and reward,
 3. compute the TD error,
 4. update the Dutch eligibility trace,
-5. apply the True Online Sarsa(lambda) weight update.
+5. apply the True Online Sarsa(λ) weight update.
 
 Important hyperparameters:
 
@@ -150,7 +150,7 @@ plane.
 
 ## 6. Interpretation
 
-The learned controller demonstrates that tile-coded Sarsa(lambda) can discover
+The learned controller demonstrates that tile-coded Sarsa(λ) can discover
 a useful feedback policy for this simplified nonlinear excitable-cell system.
 The most important evidence is the improvement in return across training and
 the greedy rollout's ability to stay near the quiescent target for the full
@@ -234,7 +234,7 @@ seeding, and RGB rendering conventions for the FHN environment.
 ## 9. Limitations and Next Steps
 
 - Evaluate across many random seeds and report aggregate confidence intervals.
-- Compare Sarsa(lambda) against classical feedback controllers and modern RL
+- Compare Sarsa(λ) against classical feedback controllers and modern RL
   baselines.
 - Sweep the reward's control-effort penalty to study the regulation-energy
   tradeoff.
