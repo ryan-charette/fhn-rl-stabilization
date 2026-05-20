@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "fhn-sarsa-lambda-control"
+version = "0.1.0"
+description = "True Online Sarsa(lambda) controller for a FitzHugh-Nagumo cell model."
+requires-python = ">=3.9"
+dependencies = [
+  "numpy>=1.23",
+  "matplotlib>=3.6",
+  "pillow>=8",
+  "imageio>=2.31",
+  "imageio-ffmpeg>=0.4.9",
+  "gymnasium>=0.29",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
