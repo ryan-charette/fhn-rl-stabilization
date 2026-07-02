@@ -6,7 +6,9 @@ build-backend = "setuptools.build_meta"
 name = "fhn-sarsa-lambda-control"
 version = "0.1.0"
 description = "True Online Sarsa(lambda) controller for a FitzHugh-Nagumo cell model."
+readme = "README.md"
 requires-python = ">=3.9"
+license = "MIT"
 dependencies = [
   "numpy>=1.23",
   "matplotlib>=3.6",
@@ -16,5 +18,41 @@ dependencies = [
   "gymnasium>=0.29",
 ]
 
+[project.optional-dependencies]
+test = ["pytest>=8.0"]
+
 [tool.setuptools.packages.find]
 where = ["src"]
+
+[dependency-groups]
+dev = [
+  { include-group = "test" },
+  { include-group = "lint" },
+]
+test = [
+  "pytest>=8.0",
+]
+lint = [
+  "mypy>=1.10",
+  "pre-commit>=3.7",
+  "ruff>=0.6",
+]
+
+[tool.pytest.ini_options]
+minversion = "8.0"
+testpaths = ["tests"]
+addopts = ["-ra", "--strict-config", "--strict-markers"]
+xfail_strict = true
+log_level = "INFO"
+filterwarnings = ["error"]
+
+[tool.ruff]
+line-length = 120
+
+[tool.ruff.lint]
+select = ["E", "F", "B", "I", "UP"]
+
+[tool.mypy]
+strict = true
+warn_unreachable = true
+enable_error_code = ["ignore-without-code", "redundant-expr", "truthy-bool"]

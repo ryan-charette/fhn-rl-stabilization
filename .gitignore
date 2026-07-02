@@ -1,5 +1,8 @@
 .venv/
 .deps/
+.tox/
+.env
+.python-version
 __pycache__/
 *.py[cod]
 .pytest_cache/
@@ -9,3 +12,8 @@ build/
 dist/
 *.egg-info/
 results/
+
+# OS/editor
+.DS_Store
+.vscode/
+.idea/
